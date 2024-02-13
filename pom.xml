@@ -34,14 +34,23 @@
 						<provider>MC</provider>
 						<environment>Sandbox</environment>
 						<target>Cloudhub-US-East-2</target>
-						<muleVersion>4.4.0</muleVersion>
+						<muleVersion>4.6.0</muleVersion>
 						<server>anypoint-exchange-v3</server>
 						<username>${username}</username>
 						<password>${password}</password>
 						<applicationName>${mule.app.name}</applicationName>
 						<replicas>1</replicas>
 						<vCores>1</vCores>
-					</cloudhub2Deployment>
+					    <deploymentSettings>
+					        <http>
+					          <inbound>
+					            <publicUrl>https://${mule.app.name}.anypoint.com</publicUrl>
+							    <lastMileSecurity>true</lastMileSecurity>
+							    <forwardSslSession>true</forwardSslSession>
+					          </inbound>
+					        </http>
+					    </deploymentSettings>
+					    </cloudhub2Deployment>
 				</configuration>
 			</plugin>
 		</plugins>
