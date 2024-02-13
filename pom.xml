@@ -4,43 +4,45 @@
 
 	<groupId>4a671a2f-3512-4c2d-9e8d-55ad6f86ea29</groupId>
 	<artifactId>calculator-api</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>mule-application</packaging>
 
 	<name>calculator-api</name>
 
+	<description/>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<app.runtime>4.4.0-20230918</app.runtime>
 		<mule.maven.plugin.version>3.8.1</mule.maven.plugin.version>
+		<tags/>
+		<categories>[]</categories>
+		<fields>[]</fields>
 	</properties>
 
 	<build>
 		<plugins>
-		
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-				    <cloudhub2Deployment>
-				      <uri>https://anypoint.mulesoft.com</uri>
-				      <provider>MC</provider>
-				      <environment>Sandbox</environment>
-				      <target>Cloudhub-US-East-2</target>
-				      <muleVersion>4.4.0</muleVersion>
-				      <server>anypoint-exchange-v3</server>
-				      <username>${username}</username>
-				      <password>${password}</password>
-				      <applicationName>${mule.app.name}</applicationName>
-				      <replicas>1</replicas>
-				      <vCores>1</vCores>
-				    </cloudhub2Deployment>
-				    <classifier>mule-application</classifier>
-               </configuration>
+					<cloudhub2Deployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<provider>MC</provider>
+						<environment>Sandbox</environment>
+						<target>Cloudhub-US-East-2</target>
+						<muleVersion>4.4.0</muleVersion>
+						<server>anypoint-exchange-v3</server>
+						<username>${username}</username>
+						<password>${password}</password>
+						<applicationName>${mule.app.name}</applicationName>
+						<replicas>1</replicas>
+						<vCores>1</vCores>
+					</cloudhub2Deployment>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -86,14 +88,13 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-	
 	<distributionManagement>
-    <repository>
-      <id>anypoint-exchange-v3</id>
-      <name>Corporate Repository</name>
-      <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/4a671a2f-3512-4c2d-9e8d-55ad6f86ea29/maven</url>
-      <layout>default</layout>
-    </repository>
-  </distributionManagement>
+		<repository>
+			<id>anypoint-exchange-v3</id>
+			<name>Corporate Repository</name>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/4a671a2f-3512-4c2d-9e8d-55ad6f86ea29/maven</url>
+			<layout>default</layout>
+		</repository>
+	</distributionManagement>
 
 </project>
