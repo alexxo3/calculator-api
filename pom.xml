@@ -31,7 +31,7 @@
 				      <provider>MC</provider>
 				      <environment>Sandbox</environment>
 				      <target>Cloudhub-US-East-2</target>
-				      <muleVersion>4.6.0:40e</muleVersion>
+				      <muleVersion>4.4.0</muleVersion>
 				      <server>anypoint-exchange-v3</server>
 				      <username>${username}</username>
 				      <password>${password}</password>
