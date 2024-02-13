@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="a9055994-c2e9-4808-94dd-b1336883582d" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="calculator-apiFlow" doc:id="c4afccf6-19a0-4161-bc51-fd0d97b9b349" >
+		<http:listener doc:name="Listener" doc:id="04b4ec26-d59b-4f44-8ce2-4a943f39f97d" config-ref="HTTP_Listener_config" path="/calculate"/>
+		<set-variable value="#[attributes.queryParams.num1]" doc:name="Set Variable" doc:id="8d9e35fa-7725-47cf-8b62-84380dc9e8a2" variableName="num1"/>
+		<set-variable value="#[attributes.queryParams.num2]" doc:name="Set Variable" doc:id="6a0a0513-e3ca-4e45-ac26-9d0964fc19cc" variableName="num2"/>
+		<ee:transform doc:name="Transform Message" doc:id="488f7cc8-0146-4605-97c0-94798754a250" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"add": vars.num1 as Number + vars.num2 as Number,
+	"sub": vars.num1 as Number - vars.num2 as Number
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="35b7ccf2-9f58-47fb-b5d3-46cd65cf0233" message="api created successfully"/>
+	</flow>
+</mule>
