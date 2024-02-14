@@ -15,7 +15,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<app.runtime>4.4.0-20230918</app.runtime>
-		<mule.maven.plugin.version>3.8.1</mule.maven.plugin.version>
+		<mule.maven.plugin.version>3.8.2</mule.maven.plugin.version>
 		<tags/>
 		<categories>[]</categories>
 		<fields>[]</fields>
@@ -23,7 +23,6 @@
 
 	<build>
 		<plugins>
-			
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
@@ -42,16 +41,16 @@
 						<applicationName>${mule.app.name}</applicationName>
 						<replicas>1</replicas>
 						<vCores>0.5</vCores>
-					    <deploymentSettings>
-					        <http>
-					          <inbound>
-					            <publicUrl>https://${mule.app.name}.anypoint.com</publicUrl>
-							    <lastMileSecurity>true</lastMileSecurity>
-							    <forwardSslSession>true</forwardSslSession>
-					          </inbound>
-					        </http>
-					    </deploymentSettings>
-					    </cloudhub2Deployment>
+						<deploymentSettings>
+							<http>
+								<inbound>
+									<publicUrl>https://${mule.app.name}.anypoint.com</publicUrl>
+									<lastMileSecurity>true</lastMileSecurity>
+									<forwardSslSession>true</forwardSslSession>
+								</inbound>
+							</http>
+						</deploymentSettings>
+					</cloudhub2Deployment>
 				</configuration>
 			</plugin>
 		</plugins>
