@@ -45,7 +45,7 @@
 						<password>${password}</password>
 						<applicationName>${mule.app.name}</applicationName>
 						<replicas>1</replicas>
-						<vCores>1</vCores>
+						<vCores>0.5</vCores>
 					    <deploymentSettings>
 					        <http>
 					          <inbound>
