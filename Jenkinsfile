@@ -27,7 +27,7 @@ pipeline{
 				
 					echo 'Deploying to the configured environment….'
 				
-					bat 'mvn -X clean deploy -DmuleDeploy -Dmule.app.name=cloudhub2-cicd -Dusername=Alexo12 -Dpassword=Alex12345'
+					bat 'mvn clean deploy -DmuleDeploy -Dmule.app.name=cloudhub2-cicd -Dusername=Alexo12 -Dpassword=Alex12345'
 				
 				}
 		
